@@ -8,12 +8,17 @@ from tqdm import tqdm
 from trl import SFTConfig, SFTTrainer
 import copy
 
-def formatting_func(example):
+def format_prompt(document: str) -> str:
     return (
         "### Instruction:\n"
         "Summarize the following text.\n\n"
-        f"### Input:\n{example['document']}\n\n"
+        f"### Input:\n{document}\n\n"
         "### Response:\n"
+    )
+
+def formatting_func(example: Dict[str, str]) -> str:
+    return (
+        format_prompt(example["document"]) +
         f"{example['summary']}"
     )
 

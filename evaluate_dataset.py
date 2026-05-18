@@ -4,6 +4,7 @@ import torch
 import evaluate
 from typing import Dict, List
 from tqdm import tqdm
+from lora_peft import format_prompt
 
 
 def score_model(model: AutoModelForCausalLM, tokenizer: AutoTokenizer, dataset: Dataset, batch_size: int = 8) -> Dict[str, float]:
@@ -14,7 +15,9 @@ def score_model(model: AutoModelForCausalLM, tokenizer: AutoTokenizer, dataset: 
     
     # Process in batches
     for i in tqdm(range(0, len(documents), batch_size)):
-        batch_prompts = documents[i:i + batch_size]
+        prompts = documents[i:i + batch_size]
+
+        batch_prompts = [format_prompt(doc) for doc in prompts]
         batch_predictions = generate_answers_batch(model, tokenizer, batch_prompts)
         generated_summary.extend(batch_predictions)
 
@@ -30,10 +33,13 @@ def generate_answers_batch(model: AutoModelForCausalLM, tokenizer: AutoTokenizer
             **inputs,
             max_new_tokens=30
         )
+   
+    decoded = tokenizer.batch_decode(
+        outputs,
+        skip_special_tokens=True
+    )
 
-    input_len = inputs["input_ids"].shape[1]
-    generated_ids = outputs[:, input_len:]
-
-    predictions = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
-    
-    return predictions
+    predictions = [
+        text.split("### Response:\n")[-1].strip()
+        for text in decoded
+    ]
