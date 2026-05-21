@@ -1,14 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=mamba        # nazwa zadania
-#SBATCH --output=job_output%j.txt    # plik wyjściowy (stdout)
-#SBATCH --error=job_error%j.txt      # plik błędów (stderr)
-#SBATCH --partition=gpu          # nazwa partycji
-#SBATCH --nodes=1                  # liczba węzłów
-#SBATCH --ntasks=1                 # liczba zadań
-#SBATCH --cpus-per-task=24       # liczba CPU na zadanie
-#SBATCH --mem=60G                   # pamięć RAM
-#SBATCH --time=10:00:00            # maksymalny czas wykonania
-#SBATCH --gres=gpu:nvidia-96G:7               # liczba GPU
+#SBATCH --job-name=submit
+#SBATCH --output=slurm_%j.out
+#SBATCH --error=slurm_%j.err
+#SBATCH --partition=plgrid-gpu-a100
+#SBATCH --account=plgdyplomancipw2-gpu-a100
+#SBATCH --gres=gpu:a100:1
+#SBATCH --mem=60G
+#SBATCH --cpus-per-task=8
+#SBATCH --time=04:00:00
 
 # --- Komendy do wykonania ---
 START=$(date +%s)
@@ -18,12 +17,12 @@ hostname
 nproc
 sleep 60
 
-module load uv
-cd /scratch/zwaszczu/llm_mamba
-uv sync --reinstall
+cd /net/tscratch/people/plgzwaszczuk/llm_mamba
+uv sync
+module load cuda/12.8
 
 source .venv/bin/activate
-OMP_NUM_THREADS=1 torchrun --nproc-per-node=7 main.py
+OMP_NUM_THREADS=1 torchrun --nproc-per-node=1 main.py
 
 END=$(date +%s)
 ELAPSED=$((END - START))

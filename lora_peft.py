@@ -48,6 +48,7 @@ def fine_tune_with_lora(model: AutoModelForCausalLM, dataset: Dataset, tokenizer
         save_strategy="steps",
         save_steps=1000,               
         load_best_model_at_end=True,
+        report_to="wandb",
     )
 
     peft_config = LoraConfig(
