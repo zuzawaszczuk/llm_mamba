@@ -43,3 +43,5 @@ def generate_answers_batch(model: AutoModelForCausalLM, tokenizer: AutoTokenizer
         text.split("### Response:\n")[-1].strip()
         for text in decoded
     ]
+
+    return predictions

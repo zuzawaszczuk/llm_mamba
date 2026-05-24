@@ -29,15 +29,15 @@ def fine_tune_with_lora(model: AutoModelForCausalLM, dataset: Dataset, tokenizer
     sft_config = SFTConfig(
         output_dir=finetune_name,
         num_train_epochs=1,             # Liczba epok treningu
-        per_device_train_batch_size= 16,  # Rozmiar wsadu per GPU
-        per_device_eval_batch_size = 16,
-        gradient_accumulation_steps = 2,
+        per_device_train_batch_size=4,  # Rozmiar wsadu per GPU
+        per_device_eval_batch_size=4,
+        gradient_accumulation_steps=4,
         #optim="adafactor",             # Optymalizator AdaFactor
         optim="adamw_torch_fused",      # Efektywna wersja optymalizatora AdamW
-        learning_rate=2e-4,             # Stopa uczenia
+        learning_rate=1e-3,             # Stopa uczenia
         max_grad_norm=0.3,              # Ograniczenie gradientu
         warmup_ratio=0.03,              # warm-up
-        lr_scheduler_type="constant",   # Stała stopa uczenia po początkowym okresie warm-up
+        lr_scheduler_type="cosine",   # Stała stopa uczenia po początkowym okresie warm-up
         logging_steps=100,               # Co ile kroków logować wartość metryk
         eval_strategy="steps",          # Ewaluacja po wykonaniu określonej liczby kroków
         eval_steps=100,                  # Częstotliwość ewaluacji
@@ -56,7 +56,7 @@ def fine_tune_with_lora(model: AutoModelForCausalLM, dataset: Dataset, tokenizer
         lora_alpha=8,           # LoRA scaling factor
         lora_dropout=0.05,      # Dropout probability for LoRA layers
         bias="none",
-        target_modules=["in_proj", "x_proj", "dt_proj"],  # Nazwy modułów, które mają być dostrojone za pomocą LoRA
+        target_modules=["in_proj", "x_proj", "out_proj", "embeddings"],  # Nazwy modułów, które mają być dostrojone za pomocą LoRA
         task_type="CAUSAL_LM",  # Task type for model architecture
         ensure_weight_tying=True,
     )
