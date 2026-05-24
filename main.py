@@ -13,10 +13,10 @@ def main():
     load_dotenv()
     wandb.login()
     wandb.init(project="mamba-finetuning", name="mamba-130m-lora-finetune")
-    # dist.init_process_group(backend="nccl")
+    dist.init_process_group(backend="nccl")
     dataset = load_dataset("EdinburghNLP/xsum")
-    dataset['validation'] = dataset['validation'].shuffle(42).select(range(100))
-    dataset['test'] = dataset['test'].shuffle(42).select(range(1000))
+    #dataset['validation'] = dataset['validation'].shuffle(42).select(range(100))
+    #dataset['test'] = dataset['test'].shuffle(42).select(range(1000))
 
     print(dataset.keys())
     model_name = "state-spaces/mamba-130m-hf"
