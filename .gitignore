@@ -1,4 +1,5 @@
 __pycache__
-Lora-FT
+Lora-FT*
 .env
 wandb
+mamba*

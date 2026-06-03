@@ -42,3 +42,13 @@ oficjalne repozytorium Mamba, pretrenowane model state-spaces
 - Przegląd literatury
 - Opis rozwiązania
 - Wyniki ewaluacji eksperymentalnej
+
+
+### Planowane eksperymenty
+
+- Na przykładzie mamby porównanie constatnst learning rate, a cosine.
+
+-  Analiza skalowania
+• Porównanie obu architektur dla różnych długości sekwencji (128, 512, 1024 tokenów).
+• Czas trenowania epoki.
+• Czas inferencji.
