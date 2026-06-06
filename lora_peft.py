@@ -7,14 +7,12 @@ from typing import Dict, List
 from tqdm import tqdm
 from trl import SFTConfig, SFTTrainer
 import copy
+from evaluate_dataset import RougeCallback, format_prompt
+import time
+from transformers import TrainerCallback
 
-def format_prompt(document: str) -> str:
-    return (
-        "### Instruction:\n"
-        "Summarize the following text.\n\n"
-        f"### Input:\n{document}\n\n"
-        "### Response:\n"
-    )
+
+
 
 def formatting_func(example: Dict[str, str]) -> str:
     return (
@@ -29,8 +27,8 @@ def fine_tune_with_lora(model: AutoModelForCausalLM, dataset: Dataset, tokenizer
     sft_config = SFTConfig(
         output_dir=finetune_name,
         num_train_epochs=epoch,             # Liczba epok treningu
-        per_device_train_batch_size=64,  # Rozmiar wsadu per GPU
-        per_device_eval_batch_size=64,
+        per_device_train_batch_size=16,  # Rozmiar wsadu per GPU
+        per_device_eval_batch_size=16,
         gradient_accumulation_steps=4,
         #optim="adafactor",             # Optymalizator AdaFactor
         optim="adamw_torch_fused",      # Efektywna wersja optymalizatora AdamW
@@ -44,7 +42,6 @@ def fine_tune_with_lora(model: AutoModelForCausalLM, dataset: Dataset, tokenizer
         bf16=True,                     # Precyzja bfloat16 wymaga architektury Ampere
         ddp_find_unused_parameters=True,  # DDP dla multi-GPU
         gradient_checkpointing=True, 
-        dataset_num_proc=2,
         save_strategy="steps",
         save_steps=1000,               
         load_best_model_at_end=True,
@@ -58,7 +55,7 @@ def fine_tune_with_lora(model: AutoModelForCausalLM, dataset: Dataset, tokenizer
         lora_alpha=rank,           # LoRA scaling factor
         lora_dropout=0.05,      # Dropout probability for LoRA layers
         bias="none",
-        target_modules=["in_proj", "x_proj", "dt_proj","embeddings"],
+        target_modules=["in_proj", "x_proj", "dt_proj", "embeddings"],
         #target_modules=["q_a_proj", "q_b_proj", "kv_proj", "o_a_proj", "o_b_proj"],
         task_type="CAUSAL_LM",  # Task type for model architecture
         ensure_weight_tying=True,
@@ -73,12 +70,38 @@ def fine_tune_with_lora(model: AutoModelForCausalLM, dataset: Dataset, tokenizer
         formatting_func=formatting_func,
         processing_class=tokenizer,
     )
+    trainer.add_callback(
+        EpochTimeCallback()
+    )
+
+    trainer.add_callback(
+        RougeCallback(
+            tokenizer,
+            dataset["validation"]
+        )
+    )
 
     peft_model = get_peft_model(copy.deepcopy(model), peft_config)
     peft_model.print_trainable_parameters()
 
     trainer.train()
-    
-    trainer.save_model(f"./{finetune_name}")
     return trainer.state.best_model_checkpoint
     
+
+
+class EpochTimeCallback(TrainerCallback):
+    def on_epoch_begin(self, args, state, control, **kwargs):
+        self.start_time = time.time()
+
+    def on_epoch_end(self, args, state, control, **kwargs):
+        end_time = time.time()
+        epoch_time = end_time - self.start_time
+
+        print(f"\nEpoch {int(state.epoch)} time: {epoch_time:.2f} seconds")
+
+        if args.report_to == "wandb":
+            import wandb
+            wandb.log(
+                {"time/epoch_seconds": epoch_time},
+                step=state.global_step
+            )

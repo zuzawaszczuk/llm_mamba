@@ -52,3 +52,6 @@ oficjalne repozytorium Mamba, pretrenowane model state-spaces
 • Porównanie obu architektur dla różnych długości sekwencji (128, 512, 1024 tokenów).
 • Czas trenowania epoki.
 • Czas inferencji.
+
+
+python3 main.py --model "state-spaces/mamba-130m-hf" --rank 16 --epoch 10 

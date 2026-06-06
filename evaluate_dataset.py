@@ -4,7 +4,17 @@ import torch
 import evaluate
 from typing import Dict, List
 from tqdm import tqdm
-from lora_peft import format_prompt
+from transformers import TrainerCallback
+import wandb
+
+
+def format_prompt(document: str) -> str:
+    return (
+        "### Instruction:\n"
+        "Summarize the following text.\n\n"
+        f"### Input:\n{document}\n\n"
+        "### Response:\n"
+    )
 
 
 def score_model(model: AutoModelForCausalLM, tokenizer: AutoTokenizer, dataset: Dataset, batch_size: int = 8) -> Dict[str, float]:
@@ -26,12 +36,12 @@ def score_model(model: AutoModelForCausalLM, tokenizer: AutoTokenizer, dataset: 
 
 def generate_answers_batch(model: AutoModelForCausalLM, tokenizer: AutoTokenizer, prompts: List[str]) -> List[str]:
     tokenizer.pad_token = tokenizer.eos_token
-    inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=512).to(model.device)
+    inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=4096).to(model.device)
     
     with torch.inference_mode():
         outputs = model.generate(
             **inputs,
-            max_new_tokens=30
+            max_new_tokens=40
         )
    
     decoded = tokenizer.batch_decode(
@@ -45,3 +55,28 @@ def generate_answers_batch(model: AutoModelForCausalLM, tokenizer: AutoTokenizer
     ]
 
     return predictions
+
+
+class RougeCallback(TrainerCallback):
+    def __init__(self, tokenizer, eval_dataset):
+        self.tokenizer = tokenizer
+        self.eval_dataset = eval_dataset
+
+    def on_epoch_end(self, args, state, control, **kwargs):
+        model = kwargs["model"]
+
+        scores = score_model(
+            model=model,
+            tokenizer=self.tokenizer,
+            dataset=self.eval_dataset,
+            batch_size=64,
+        )
+
+        print(f"\nEpoch {state.epoch}")
+        print(scores)
+
+        if "wandb" in args.report_to:
+            wandb.log(
+                {f"eval/{k}": v for k, v in scores.items()},
+                step=state.global_step,
+            )
