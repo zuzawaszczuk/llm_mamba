@@ -1,0 +1,267 @@
+Hello SLURM
+h86
+6
+Namespace(model='state-spaces/mamba-130m-hf', rank=32, epoch=3, ddp_setup=None, max_length=None)
+dict_keys(['train', 'validation', 'test'])
+MambaForCausalLM(
+  (backbone): MambaModel(
+    (embeddings): Embedding(50280, 768)
+    (layers): ModuleList(
+      (0-23): 24 x MambaBlock(
+        (norm): MambaRMSNorm(768, eps=1e-05)
+        (mixer): MambaMixer(
+          (conv1d): Conv1d(1536, 1536, kernel_size=(4,), stride=(1,), padding=(3,), groups=1536)
+          (act): SiLUActivation()
+          (in_proj): Linear(in_features=768, out_features=3072, bias=False)
+          (x_proj): Linear(in_features=1536, out_features=80, bias=False)
+          (dt_proj): Linear(in_features=48, out_features=1536, bias=True)
+          (out_proj): Linear(in_features=1536, out_features=768, bias=False)
+        )
+      )
+    )
+    (norm_f): MambaRMSNorm(768, eps=1e-05)
+  )
+  (lm_head): Linear(in_features=768, out_features=50280, bias=False)
+)
+Using device: cuda:0
+### Instruction:
+Summarize the following text.
+
+### Input:
+The full cost of damage in Newton Stewart, one of the areas worst affected, is still being assessed.
+Repair work is ongoing in Hawick and many roads in Peeblesshire remain badly affected by standing water.
+Trains on the west coast mainline face disruption due to damage at the Lamington Viaduct.
+Many businesses and householders were affected by flooding in Newton Stewart after the River Cree overflowed into the town.
+First Minister Nicola Sturgeon visited the area to inspect the damage.
+The waters breached a retaining wall, flooding many commercial properties on Victoria Street - the main shopping thoroughfare.
+Jeanette Tate, who owns the Cinnamon Cafe which was badly affected, said she could not fault the multi-agency response once the flood hit.
+However, she said more preventative work could have been carried out to ensure the retaining wall did not fail.
+"It is difficult but I do think there is so much publicity for Dumfries and the Nith - and I totally appreciate that - but it is almost like we're neglected or forgotten," she said.
+"That may not be true but it is perhaps my perspective over the last few days.
+"Why were you not ready to help us a bit more when the warning and the alarm alerts had gone out?"
+Meanwhile, a flood alert remains in place across the Borders because of the constant rain.
+Peebles was badly hit by problems, sparking calls to introduce more defences in the area.
+Scottish Borders Council has put a list on its website of the roads worst affected and drivers have been urged not to ignore closure signs.
+The Labour Party's deputy Scottish leader Alex Rowley was in Hawick on Monday to see the situation first hand.
+He said it was important to get the flood protection plan right but backed calls to speed up the process.
+"I was quite taken aback by the amount of damage that has been done," he said.
+"Obviously it is heart-breaking for people who have been forced out of their homes and the impact on businesses."
+He said it was important that "immediate steps" were taken to protect the areas most vulnerable and a clear timetable put in place for flood prevention plans.
+Have you been affected by flooding in Dumfries and Galloway or the Borders? Tell us about your experience of the situation and how it was handled. Email us on selkirk.news@bbc.co.uk or dumfries@bbc.co.uk.
+
+### Response:
+Clean-up operations are continuing across the Scottish Borders and Dumfries and Galloway after flooding caused by Storm Frank.
+trainable params: 7,040,256 || all params: 136,175,616 || trainable%: 5.1700
+{'loss': '11.07', 'grad_norm': '1.232', 'learning_rate': '0.0002', 'entropy': '2.774', 'num_tokens': '3.237e+06', 'mean_token_accuracy': '0.4471', 'epoch': '0.03137'}
+{'eval_loss': '2.716', 'eval_runtime': '73.41', 'eval_samples_per_second': '154.4', 'eval_steps_per_second': '9.658', 'eval_entropy': '2.714', 'eval_num_tokens': '3.237e+06', 'eval_mean_token_accuracy': '0.4546', 'epoch': '0.03137'}
+{'loss': '10.85', 'grad_norm': '1.127', 'learning_rate': '0.0002', 'entropy': '2.713', 'num_tokens': '6.468e+06', 'mean_token_accuracy': '0.4552', 'epoch': '0.06273'}
+{'eval_loss': '2.701', 'eval_runtime': '73.71', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.619', 'eval_entropy': '2.695', 'eval_num_tokens': '6.468e+06', 'eval_mean_token_accuracy': '0.457', 'epoch': '0.06273'}
+{'loss': '10.78', 'grad_norm': '1.108', 'learning_rate': '0.0002', 'entropy': '2.695', 'num_tokens': '9.679e+06', 'mean_token_accuracy': '0.4581', 'epoch': '0.0941'}
+{'eval_loss': '2.691', 'eval_runtime': '73.68', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.623', 'eval_entropy': '2.7', 'eval_num_tokens': '9.679e+06', 'eval_mean_token_accuracy': '0.4583', 'epoch': '0.0941'}
+{'loss': '10.8', 'grad_norm': '1.115', 'learning_rate': '0.0002', 'entropy': '2.702', 'num_tokens': '1.29e+07', 'mean_token_accuracy': '0.457', 'epoch': '0.1255'}
+{'eval_loss': '2.684', 'eval_runtime': '73.74', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.615', 'eval_entropy': '2.689', 'eval_num_tokens': '1.29e+07', 'eval_mean_token_accuracy': '0.4591', 'epoch': '0.1255'}
+{'loss': '10.73', 'grad_norm': '1.144', 'learning_rate': '0.0002', 'entropy': '2.683', 'num_tokens': '1.614e+07', 'mean_token_accuracy': '0.4598', 'epoch': '0.1568'}
+{'eval_loss': '2.679', 'eval_runtime': '73.66', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.626', 'eval_entropy': '2.679', 'eval_num_tokens': '1.614e+07', 'eval_mean_token_accuracy': '0.4599', 'epoch': '0.1568'}
+{'loss': '10.74', 'grad_norm': '1.01', 'learning_rate': '0.0002', 'entropy': '2.686', 'num_tokens': '1.938e+07', 'mean_token_accuracy': '0.4595', 'epoch': '0.1882'}
+{'eval_loss': '2.675', 'eval_runtime': '73.66', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.626', 'eval_entropy': '2.683', 'eval_num_tokens': '1.938e+07', 'eval_mean_token_accuracy': '0.4604', 'epoch': '0.1882'}
+{'loss': '10.67', 'grad_norm': '1.081', 'learning_rate': '0.0002', 'entropy': '2.668', 'num_tokens': '2.264e+07', 'mean_token_accuracy': '0.4619', 'epoch': '0.2196'}
+{'eval_loss': '2.671', 'eval_runtime': '73.67', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.624', 'eval_entropy': '2.679', 'eval_num_tokens': '2.264e+07', 'eval_mean_token_accuracy': '0.4611', 'epoch': '0.2196'}
+{'loss': '10.68', 'grad_norm': '0.96', 'learning_rate': '0.0002', 'entropy': '2.671', 'num_tokens': '2.589e+07', 'mean_token_accuracy': '0.4615', 'epoch': '0.2509'}
+{'eval_loss': '2.668', 'eval_runtime': '73.66', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.626', 'eval_entropy': '2.673', 'eval_num_tokens': '2.589e+07', 'eval_mean_token_accuracy': '0.4615', 'epoch': '0.2509'}
+{'loss': '10.65', 'grad_norm': '0.9791', 'learning_rate': '0.0002', 'entropy': '2.664', 'num_tokens': '2.914e+07', 'mean_token_accuracy': '0.4622', 'epoch': '0.2823'}
+{'eval_loss': '2.665', 'eval_runtime': '73.64', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.628', 'eval_entropy': '2.682', 'eval_num_tokens': '2.914e+07', 'eval_mean_token_accuracy': '0.4619', 'epoch': '0.2823'}
+{'loss': '10.64', 'grad_norm': '0.9276', 'learning_rate': '0.0002', 'entropy': '2.66', 'num_tokens': '3.235e+07', 'mean_token_accuracy': '0.4633', 'epoch': '0.3137'}
+{'eval_loss': '2.662', 'eval_runtime': '73.64', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.628', 'eval_entropy': '2.667', 'eval_num_tokens': '3.235e+07', 'eval_mean_token_accuracy': '0.4623', 'epoch': '0.3137'}
+{'loss': '10.63', 'grad_norm': '0.988', 'learning_rate': '0.0002', 'entropy': '2.659', 'num_tokens': '3.561e+07', 'mean_token_accuracy': '0.463', 'epoch': '0.345'}
+{'eval_loss': '2.66', 'eval_runtime': '73.69', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.621', 'eval_entropy': '2.664', 'eval_num_tokens': '3.561e+07', 'eval_mean_token_accuracy': '0.4628', 'epoch': '0.345'}
+{'loss': '10.66', 'grad_norm': '0.9928', 'learning_rate': '0.0002', 'entropy': '2.667', 'num_tokens': '3.891e+07', 'mean_token_accuracy': '0.462', 'epoch': '0.3764'}
+{'eval_loss': '2.657', 'eval_runtime': '73.6', 'eval_samples_per_second': '154', 'eval_steps_per_second': '9.633', 'eval_entropy': '2.663', 'eval_num_tokens': '3.891e+07', 'eval_mean_token_accuracy': '0.463', 'epoch': '0.3764'}
+{'loss': '10.58', 'grad_norm': '0.8738', 'learning_rate': '0.0002', 'entropy': '2.647', 'num_tokens': '4.216e+07', 'mean_token_accuracy': '0.4649', 'epoch': '0.4077'}
+{'eval_loss': '2.656', 'eval_runtime': '73.63', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.63', 'eval_entropy': '2.647', 'eval_num_tokens': '4.216e+07', 'eval_mean_token_accuracy': '0.4631', 'epoch': '0.4077'}
+{'loss': '10.62', 'grad_norm': '0.9123', 'learning_rate': '0.0002', 'entropy': '2.655', 'num_tokens': '4.541e+07', 'mean_token_accuracy': '0.4631', 'epoch': '0.4391'}
+{'eval_loss': '2.653', 'eval_runtime': '73.65', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.627', 'eval_entropy': '2.656', 'eval_num_tokens': '4.541e+07', 'eval_mean_token_accuracy': '0.4637', 'epoch': '0.4391'}
+{'loss': '10.63', 'grad_norm': '0.9253', 'learning_rate': '0.0002', 'entropy': '2.657', 'num_tokens': '4.867e+07', 'mean_token_accuracy': '0.4636', 'epoch': '0.4705'}
+{'eval_loss': '2.651', 'eval_runtime': '73.6', 'eval_samples_per_second': '154', 'eval_steps_per_second': '9.633', 'eval_entropy': '2.656', 'eval_num_tokens': '4.867e+07', 'eval_mean_token_accuracy': '0.4638', 'epoch': '0.4705'}
+{'loss': '10.61', 'grad_norm': '0.9039', 'learning_rate': '0.0002', 'entropy': '2.653', 'num_tokens': '5.195e+07', 'mean_token_accuracy': '0.4638', 'epoch': '0.5018'}
+{'eval_loss': '2.649', 'eval_runtime': '73.57', 'eval_samples_per_second': '154', 'eval_steps_per_second': '9.637', 'eval_entropy': '2.645', 'eval_num_tokens': '5.195e+07', 'eval_mean_token_accuracy': '0.4641', 'epoch': '0.5018'}
+{'loss': '10.62', 'grad_norm': '1.3', 'learning_rate': '0.0002', 'entropy': '2.655', 'num_tokens': '5.521e+07', 'mean_token_accuracy': '0.4628', 'epoch': '0.5332'}
+{'eval_loss': '2.648', 'eval_runtime': '73.63', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.629', 'eval_entropy': '2.648', 'eval_num_tokens': '5.521e+07', 'eval_mean_token_accuracy': '0.4643', 'epoch': '0.5332'}
+{'loss': '10.58', 'grad_norm': '0.8571', 'learning_rate': '0.0002', 'entropy': '2.646', 'num_tokens': '5.843e+07', 'mean_token_accuracy': '0.465', 'epoch': '0.5646'}
+{'eval_loss': '2.646', 'eval_runtime': '73.62', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.63', 'eval_entropy': '2.645', 'eval_num_tokens': '5.843e+07', 'eval_mean_token_accuracy': '0.4645', 'epoch': '0.5646'}
+{'loss': '10.55', 'grad_norm': '0.9056', 'learning_rate': '0.0002', 'entropy': '2.638', 'num_tokens': '6.163e+07', 'mean_token_accuracy': '0.4655', 'epoch': '0.5959'}
+{'eval_loss': '2.645', 'eval_runtime': '73.64', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.627', 'eval_entropy': '2.647', 'eval_num_tokens': '6.163e+07', 'eval_mean_token_accuracy': '0.4646', 'epoch': '0.5959'}
+{'loss': '10.6', 'grad_norm': '0.847', 'learning_rate': '0.0002', 'entropy': '2.652', 'num_tokens': '6.486e+07', 'mean_token_accuracy': '0.4638', 'epoch': '0.6273'}
+{'eval_loss': '2.643', 'eval_runtime': '73.67', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.624', 'eval_entropy': '2.647', 'eval_num_tokens': '6.486e+07', 'eval_mean_token_accuracy': '0.4647', 'epoch': '0.6273'}
+{'loss': '10.57', 'grad_norm': '0.8891', 'learning_rate': '0.0002', 'entropy': '2.645', 'num_tokens': '6.809e+07', 'mean_token_accuracy': '0.4653', 'epoch': '0.6587'}
+{'eval_loss': '2.642', 'eval_runtime': '73.69', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.622', 'eval_entropy': '2.639', 'eval_num_tokens': '6.809e+07', 'eval_mean_token_accuracy': '0.4651', 'epoch': '0.6587'}
+{'loss': '10.58', 'grad_norm': '0.8557', 'learning_rate': '0.0002', 'entropy': '2.644', 'num_tokens': '7.134e+07', 'mean_token_accuracy': '0.4649', 'epoch': '0.69'}
+{'eval_loss': '2.64', 'eval_runtime': '73.62', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.63', 'eval_entropy': '2.642', 'eval_num_tokens': '7.134e+07', 'eval_mean_token_accuracy': '0.4652', 'epoch': '0.69'}
+{'loss': '10.57', 'grad_norm': '0.8013', 'learning_rate': '0.0002', 'entropy': '2.642', 'num_tokens': '7.459e+07', 'mean_token_accuracy': '0.4649', 'epoch': '0.7214'}
+{'eval_loss': '2.639', 'eval_runtime': '73.59', 'eval_samples_per_second': '154', 'eval_steps_per_second': '9.634', 'eval_entropy': '2.641', 'eval_num_tokens': '7.459e+07', 'eval_mean_token_accuracy': '0.4655', 'epoch': '0.7214'}
+{'loss': '10.55', 'grad_norm': '0.7946', 'learning_rate': '0.0002', 'entropy': '2.638', 'num_tokens': '7.783e+07', 'mean_token_accuracy': '0.4664', 'epoch': '0.7528'}
+{'eval_loss': '2.638', 'eval_runtime': '73.65', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.626', 'eval_entropy': '2.642', 'eval_num_tokens': '7.783e+07', 'eval_mean_token_accuracy': '0.4657', 'epoch': '0.7528'}
+{'loss': '10.55', 'grad_norm': '0.8184', 'learning_rate': '0.0002', 'entropy': '2.638', 'num_tokens': '8.105e+07', 'mean_token_accuracy': '0.4664', 'epoch': '0.7841'}
+{'eval_loss': '2.637', 'eval_runtime': '73.66', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.625', 'eval_entropy': '2.636', 'eval_num_tokens': '8.105e+07', 'eval_mean_token_accuracy': '0.4659', 'epoch': '0.7841'}
+{'loss': '10.54', 'grad_norm': '0.8111', 'learning_rate': '0.0002', 'entropy': '2.635', 'num_tokens': '8.427e+07', 'mean_token_accuracy': '0.4661', 'epoch': '0.8155'}
+{'eval_loss': '2.636', 'eval_runtime': '73.62', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.631', 'eval_entropy': '2.631', 'eval_num_tokens': '8.427e+07', 'eval_mean_token_accuracy': '0.466', 'epoch': '0.8155'}
+{'loss': '10.55', 'grad_norm': '0.8277', 'learning_rate': '0.0002', 'entropy': '2.637', 'num_tokens': '8.752e+07', 'mean_token_accuracy': '0.4659', 'epoch': '0.8469'}
+{'eval_loss': '2.634', 'eval_runtime': '73.64', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.628', 'eval_entropy': '2.635', 'eval_num_tokens': '8.752e+07', 'eval_mean_token_accuracy': '0.4661', 'epoch': '0.8469'}
+{'loss': '10.52', 'grad_norm': '0.8017', 'learning_rate': '0.0002', 'entropy': '2.631', 'num_tokens': '9.076e+07', 'mean_token_accuracy': '0.4668', 'epoch': '0.8782'}
+{'eval_loss': '2.634', 'eval_runtime': '73.68', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.622', 'eval_entropy': '2.637', 'eval_num_tokens': '9.076e+07', 'eval_mean_token_accuracy': '0.4663', 'epoch': '0.8782'}
+{'loss': '10.52', 'grad_norm': '0.7622', 'learning_rate': '0.0002', 'entropy': '2.63', 'num_tokens': '9.402e+07', 'mean_token_accuracy': '0.4665', 'epoch': '0.9096'}
+{'eval_loss': '2.632', 'eval_runtime': '73.63', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.63', 'eval_entropy': '2.636', 'eval_num_tokens': '9.402e+07', 'eval_mean_token_accuracy': '0.4665', 'epoch': '0.9096'}
+{'loss': '10.53', 'grad_norm': '0.7811', 'learning_rate': '0.0002', 'entropy': '2.634', 'num_tokens': '9.727e+07', 'mean_token_accuracy': '0.4662', 'epoch': '0.941'}
+{'eval_loss': '2.631', 'eval_runtime': '73.68', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.623', 'eval_entropy': '2.632', 'eval_num_tokens': '9.727e+07', 'eval_mean_token_accuracy': '0.4666', 'epoch': '0.941'}
+{'loss': '10.51', 'grad_norm': '0.8108', 'learning_rate': '0.0002', 'entropy': '2.628', 'num_tokens': '1.005e+08', 'mean_token_accuracy': '0.4679', 'epoch': '0.9723'}
+{'eval_loss': '2.63', 'eval_runtime': '73.62', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.63', 'eval_entropy': '2.632', 'eval_num_tokens': '1.005e+08', 'eval_mean_token_accuracy': '0.4667', 'epoch': '0.9723'}
+
+Epoch 1 time: 6242.17 seconds
+
+Epoch 1.0
+{'rouge1': np.float64(0.28725742361647555), 'rouge2': np.float64(0.081539612278943), 'rougeL': np.float64(0.2222276093532412), 'rougeLsum': np.float64(0.22217359799609013)}
+{'loss': '10.48', 'grad_norm': '0.8578', 'learning_rate': '0.0002', 'entropy': '2.641', 'num_tokens': '1.037e+08', 'mean_token_accuracy': '0.4651', 'epoch': '1.003'}
+{'eval_loss': '2.629', 'eval_runtime': '73.27', 'eval_samples_per_second': '154.7', 'eval_steps_per_second': '9.677', 'eval_entropy': '2.617', 'eval_num_tokens': '1.037e+08', 'eval_mean_token_accuracy': '0.4668', 'epoch': '1.003'}
+{'loss': '10.45', 'grad_norm': '0.7946', 'learning_rate': '0.0002', 'entropy': '2.615', 'num_tokens': '1.069e+08', 'mean_token_accuracy': '0.4692', 'epoch': '1.035'}
+{'eval_loss': '2.629', 'eval_runtime': '73.58', 'eval_samples_per_second': '154', 'eval_steps_per_second': '9.636', 'eval_entropy': '2.632', 'eval_num_tokens': '1.069e+08', 'eval_mean_token_accuracy': '0.4669', 'epoch': '1.035'}
+{'loss': '10.47', 'grad_norm': '0.785', 'learning_rate': '0.0002', 'entropy': '2.62', 'num_tokens': '1.102e+08', 'mean_token_accuracy': '0.4691', 'epoch': '1.066'}
+{'eval_loss': '2.628', 'eval_runtime': '73.69', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.621', 'eval_entropy': '2.617', 'eval_num_tokens': '1.102e+08', 'eval_mean_token_accuracy': '0.4669', 'epoch': '1.066'}
+{'loss': '10.47', 'grad_norm': '0.7932', 'learning_rate': '0.0002', 'entropy': '2.618', 'num_tokens': '1.134e+08', 'mean_token_accuracy': '0.469', 'epoch': '1.098'}
+{'eval_loss': '2.628', 'eval_runtime': '73.68', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.623', 'eval_entropy': '2.617', 'eval_num_tokens': '1.134e+08', 'eval_mean_token_accuracy': '0.4671', 'epoch': '1.098'}
+{'loss': '10.48', 'grad_norm': '0.8458', 'learning_rate': '0.0002', 'entropy': '2.621', 'num_tokens': '1.167e+08', 'mean_token_accuracy': '0.4676', 'epoch': '1.129'}
+{'eval_loss': '2.627', 'eval_runtime': '73.69', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.621', 'eval_entropy': '2.624', 'eval_num_tokens': '1.167e+08', 'eval_mean_token_accuracy': '0.4672', 'epoch': '1.129'}
+{'loss': '10.48', 'grad_norm': '0.8819', 'learning_rate': '0.0002', 'entropy': '2.623', 'num_tokens': '1.199e+08', 'mean_token_accuracy': '0.4683', 'epoch': '1.16'}
+{'eval_loss': '2.626', 'eval_runtime': '73.69', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.621', 'eval_entropy': '2.615', 'eval_num_tokens': '1.199e+08', 'eval_mean_token_accuracy': '0.4673', 'epoch': '1.16'}
+{'loss': '10.49', 'grad_norm': '0.7845', 'learning_rate': '0.0002', 'entropy': '2.622', 'num_tokens': '1.232e+08', 'mean_token_accuracy': '0.4674', 'epoch': '1.192'}
+{'eval_loss': '2.625', 'eval_runtime': '73.6', 'eval_samples_per_second': '154', 'eval_steps_per_second': '9.634', 'eval_entropy': '2.622', 'eval_num_tokens': '1.232e+08', 'eval_mean_token_accuracy': '0.4675', 'epoch': '1.192'}
+{'loss': '10.47', 'grad_norm': '0.7808', 'learning_rate': '0.0002', 'entropy': '2.618', 'num_tokens': '1.264e+08', 'mean_token_accuracy': '0.4692', 'epoch': '1.223'}
+{'eval_loss': '2.625', 'eval_runtime': '73.65', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.627', 'eval_entropy': '2.634', 'eval_num_tokens': '1.264e+08', 'eval_mean_token_accuracy': '0.4675', 'epoch': '1.223'}
+{'loss': '10.48', 'grad_norm': '0.78', 'learning_rate': '0.0002', 'entropy': '2.623', 'num_tokens': '1.297e+08', 'mean_token_accuracy': '0.4678', 'epoch': '1.254'}
+{'eval_loss': '2.624', 'eval_runtime': '73.69', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.621', 'eval_entropy': '2.61', 'eval_num_tokens': '1.297e+08', 'eval_mean_token_accuracy': '0.4676', 'epoch': '1.254'}
+{'loss': '10.42', 'grad_norm': '0.7879', 'learning_rate': '0.0002', 'entropy': '2.604', 'num_tokens': '1.329e+08', 'mean_token_accuracy': '0.4708', 'epoch': '1.286'}
+{'eval_loss': '2.623', 'eval_runtime': '73.67', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.624', 'eval_entropy': '2.624', 'eval_num_tokens': '1.329e+08', 'eval_mean_token_accuracy': '0.4677', 'epoch': '1.286'}
+{'loss': '10.49', 'grad_norm': '0.7654', 'learning_rate': '0.0002', 'entropy': '2.622', 'num_tokens': '1.362e+08', 'mean_token_accuracy': '0.4677', 'epoch': '1.317'}
+{'eval_loss': '2.622', 'eval_runtime': '73.71', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.619', 'eval_entropy': '2.627', 'eval_num_tokens': '1.362e+08', 'eval_mean_token_accuracy': '0.4678', 'epoch': '1.317'}
+{'loss': '10.42', 'grad_norm': '0.7857', 'learning_rate': '0.0002', 'entropy': '2.607', 'num_tokens': '1.394e+08', 'mean_token_accuracy': '0.4708', 'epoch': '1.348'}
+{'eval_loss': '2.622', 'eval_runtime': '73.67', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.624', 'eval_entropy': '2.616', 'eval_num_tokens': '1.394e+08', 'eval_mean_token_accuracy': '0.468', 'epoch': '1.348'}
+{'loss': '10.5', 'grad_norm': '0.7931', 'learning_rate': '0.0002', 'entropy': '2.624', 'num_tokens': '1.427e+08', 'mean_token_accuracy': '0.4676', 'epoch': '1.38'}
+{'eval_loss': '2.621', 'eval_runtime': '73.73', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.616', 'eval_entropy': '2.618', 'eval_num_tokens': '1.427e+08', 'eval_mean_token_accuracy': '0.468', 'epoch': '1.38'}
+{'loss': '10.45', 'grad_norm': '0.784', 'learning_rate': '0.0002', 'entropy': '2.614', 'num_tokens': '1.459e+08', 'mean_token_accuracy': '0.4698', 'epoch': '1.411'}
+{'eval_loss': '2.621', 'eval_runtime': '73.64', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.628', 'eval_entropy': '2.615', 'eval_num_tokens': '1.459e+08', 'eval_mean_token_accuracy': '0.4681', 'epoch': '1.411'}
+{'loss': '10.45', 'grad_norm': '0.7501', 'learning_rate': '0.0002', 'entropy': '2.613', 'num_tokens': '1.492e+08', 'mean_token_accuracy': '0.4688', 'epoch': '1.443'}
+{'eval_loss': '2.62', 'eval_runtime': '73.66', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.625', 'eval_entropy': '2.619', 'eval_num_tokens': '1.492e+08', 'eval_mean_token_accuracy': '0.4682', 'epoch': '1.443'}
+{'loss': '10.47', 'grad_norm': '0.7442', 'learning_rate': '0.0002', 'entropy': '2.619', 'num_tokens': '1.525e+08', 'mean_token_accuracy': '0.4685', 'epoch': '1.474'}
+{'eval_loss': '2.619', 'eval_runtime': '73.66', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.625', 'eval_entropy': '2.612', 'eval_num_tokens': '1.525e+08', 'eval_mean_token_accuracy': '0.4684', 'epoch': '1.474'}
+{'loss': '10.47', 'grad_norm': '0.7543', 'learning_rate': '0.0002', 'entropy': '2.617', 'num_tokens': '1.558e+08', 'mean_token_accuracy': '0.4689', 'epoch': '1.505'}
+{'eval_loss': '2.618', 'eval_runtime': '73.65', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.626', 'eval_entropy': '2.623', 'eval_num_tokens': '1.558e+08', 'eval_mean_token_accuracy': '0.4684', 'epoch': '1.505'}
+{'loss': '10.48', 'grad_norm': '0.7888', 'learning_rate': '0.0002', 'entropy': '2.62', 'num_tokens': '1.59e+08', 'mean_token_accuracy': '0.4686', 'epoch': '1.537'}
+{'eval_loss': '2.618', 'eval_runtime': '73.62', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.63', 'eval_entropy': '2.615', 'eval_num_tokens': '1.59e+08', 'eval_mean_token_accuracy': '0.4685', 'epoch': '1.537'}
+{'loss': '10.43', 'grad_norm': '0.7917', 'learning_rate': '0.0002', 'entropy': '2.607', 'num_tokens': '1.622e+08', 'mean_token_accuracy': '0.4702', 'epoch': '1.568'}
+{'eval_loss': '2.617', 'eval_runtime': '73.62', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.63', 'eval_entropy': '2.607', 'eval_num_tokens': '1.622e+08', 'eval_mean_token_accuracy': '0.4686', 'epoch': '1.568'}
+{'loss': '10.46', 'grad_norm': '0.7401', 'learning_rate': '0.0002', 'entropy': '2.617', 'num_tokens': '1.654e+08', 'mean_token_accuracy': '0.4688', 'epoch': '1.599'}
+{'eval_loss': '2.617', 'eval_runtime': '73.68', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.623', 'eval_entropy': '2.613', 'eval_num_tokens': '1.654e+08', 'eval_mean_token_accuracy': '0.4686', 'epoch': '1.599'}
+{'loss': '10.43', 'grad_norm': '0.8373', 'learning_rate': '0.0002', 'entropy': '2.61', 'num_tokens': '1.686e+08', 'mean_token_accuracy': '0.4696', 'epoch': '1.631'}
+{'eval_loss': '2.616', 'eval_runtime': '73.62', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.63', 'eval_entropy': '2.616', 'eval_num_tokens': '1.686e+08', 'eval_mean_token_accuracy': '0.4686', 'epoch': '1.631'}
+{'loss': '10.42', 'grad_norm': '0.7311', 'learning_rate': '0.0002', 'entropy': '2.606', 'num_tokens': '1.719e+08', 'mean_token_accuracy': '0.4708', 'epoch': '1.662'}
+{'eval_loss': '2.616', 'eval_runtime': '73.67', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.624', 'eval_entropy': '2.612', 'eval_num_tokens': '1.719e+08', 'eval_mean_token_accuracy': '0.4688', 'epoch': '1.662'}
+{'loss': '10.41', 'grad_norm': '0.7651', 'learning_rate': '0.0002', 'entropy': '2.604', 'num_tokens': '1.751e+08', 'mean_token_accuracy': '0.4702', 'epoch': '1.693'}
+{'eval_loss': '2.615', 'eval_runtime': '73.64', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.628', 'eval_entropy': '2.6', 'eval_num_tokens': '1.751e+08', 'eval_mean_token_accuracy': '0.4689', 'epoch': '1.693'}
+{'loss': '10.43', 'grad_norm': '0.772', 'learning_rate': '0.0002', 'entropy': '2.608', 'num_tokens': '1.784e+08', 'mean_token_accuracy': '0.4701', 'epoch': '1.725'}
+{'eval_loss': '2.614', 'eval_runtime': '73.74', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.615', 'eval_entropy': '2.608', 'eval_num_tokens': '1.784e+08', 'eval_mean_token_accuracy': '0.469', 'epoch': '1.725'}
+{'loss': '10.43', 'grad_norm': '0.7497', 'learning_rate': '0.0002', 'entropy': '2.61', 'num_tokens': '1.816e+08', 'mean_token_accuracy': '0.4702', 'epoch': '1.756'}
+{'eval_loss': '2.614', 'eval_runtime': '73.75', 'eval_samples_per_second': '153.6', 'eval_steps_per_second': '9.613', 'eval_entropy': '2.61', 'eval_num_tokens': '1.816e+08', 'eval_mean_token_accuracy': '0.469', 'epoch': '1.756'}
+{'loss': '10.44', 'grad_norm': '0.8285', 'learning_rate': '0.0002', 'entropy': '2.612', 'num_tokens': '1.848e+08', 'mean_token_accuracy': '0.4699', 'epoch': '1.788'}
+{'eval_loss': '2.613', 'eval_runtime': '73.66', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.625', 'eval_entropy': '2.607', 'eval_num_tokens': '1.848e+08', 'eval_mean_token_accuracy': '0.4691', 'epoch': '1.788'}
+{'loss': '10.43', 'grad_norm': '0.7116', 'learning_rate': '0.0002', 'entropy': '2.609', 'num_tokens': '1.88e+08', 'mean_token_accuracy': '0.4701', 'epoch': '1.819'}
+{'eval_loss': '2.613', 'eval_runtime': '73.62', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.63', 'eval_entropy': '2.603', 'eval_num_tokens': '1.88e+08', 'eval_mean_token_accuracy': '0.4692', 'epoch': '1.819'}
+{'loss': '10.41', 'grad_norm': '0.7327', 'learning_rate': '0.0002', 'entropy': '2.603', 'num_tokens': '1.913e+08', 'mean_token_accuracy': '0.4711', 'epoch': '1.85'}
+{'eval_loss': '2.612', 'eval_runtime': '73.62', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.631', 'eval_entropy': '2.606', 'eval_num_tokens': '1.913e+08', 'eval_mean_token_accuracy': '0.4692', 'epoch': '1.85'}
+{'loss': '10.4', 'grad_norm': '0.8214', 'learning_rate': '0.0002', 'entropy': '2.6', 'num_tokens': '1.945e+08', 'mean_token_accuracy': '0.4709', 'epoch': '1.882'}
+{'eval_loss': '2.612', 'eval_runtime': '73.64', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.628', 'eval_entropy': '2.607', 'eval_num_tokens': '1.945e+08', 'eval_mean_token_accuracy': '0.4693', 'epoch': '1.882'}
+{'loss': '10.45', 'grad_norm': '0.712', 'learning_rate': '0.0002', 'entropy': '2.614', 'num_tokens': '1.978e+08', 'mean_token_accuracy': '0.4696', 'epoch': '1.913'}
+{'eval_loss': '2.611', 'eval_runtime': '73.68', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.623', 'eval_entropy': '2.611', 'eval_num_tokens': '1.978e+08', 'eval_mean_token_accuracy': '0.4694', 'epoch': '1.913'}
+{'loss': '10.39', 'grad_norm': '0.7855', 'learning_rate': '0.0002', 'entropy': '2.598', 'num_tokens': '2.01e+08', 'mean_token_accuracy': '0.4716', 'epoch': '1.944'}
+{'eval_loss': '2.611', 'eval_runtime': '73.66', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.625', 'eval_entropy': '2.605', 'eval_num_tokens': '2.01e+08', 'eval_mean_token_accuracy': '0.4693', 'epoch': '1.944'}
+{'loss': '10.41', 'grad_norm': '0.813', 'learning_rate': '0.0002', 'entropy': '2.604', 'num_tokens': '2.042e+08', 'mean_token_accuracy': '0.4709', 'epoch': '1.976'}
+{'eval_loss': '2.61', 'eval_runtime': '73.7', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.62', 'eval_entropy': '2.606', 'eval_num_tokens': '2.042e+08', 'eval_mean_token_accuracy': '0.4695', 'epoch': '1.976'}
+
+Epoch 2 time: 6317.92 seconds
+
+Epoch 2.0
+{'rouge1': np.float64(0.29059917884918723), 'rouge2': np.float64(0.08465712766467656), 'rougeL': np.float64(0.2255962833632508), 'rougeLsum': np.float64(0.22555983040722494)}
+{'loss': '10.3', 'grad_norm': '0.8059', 'learning_rate': '0.0002', 'entropy': '2.596', 'num_tokens': '2.075e+08', 'mean_token_accuracy': '0.4725', 'epoch': '2.007'}
+{'eval_loss': '2.61', 'eval_runtime': '73.36', 'eval_samples_per_second': '154.5', 'eval_steps_per_second': '9.665', 'eval_entropy': '2.603', 'eval_num_tokens': '2.075e+08', 'eval_mean_token_accuracy': '0.4697', 'epoch': '2.007'}
+{'loss': '10.37', 'grad_norm': '0.7754', 'learning_rate': '0.0002', 'entropy': '2.595', 'num_tokens': '2.107e+08', 'mean_token_accuracy': '0.4725', 'epoch': '2.038'}
+{'eval_loss': '2.61', 'eval_runtime': '73.65', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.626', 'eval_entropy': '2.587', 'eval_num_tokens': '2.107e+08', 'eval_mean_token_accuracy': '0.4696', 'epoch': '2.038'}
+{'loss': '10.37', 'grad_norm': '0.7657', 'learning_rate': '0.0002', 'entropy': '2.593', 'num_tokens': '2.139e+08', 'mean_token_accuracy': '0.4722', 'epoch': '2.07'}
+{'eval_loss': '2.61', 'eval_runtime': '73.66', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.625', 'eval_entropy': '2.598', 'eval_num_tokens': '2.139e+08', 'eval_mean_token_accuracy': '0.4696', 'epoch': '2.07'}
+{'loss': '10.35', 'grad_norm': '0.7321', 'learning_rate': '0.0002', 'entropy': '2.589', 'num_tokens': '2.171e+08', 'mean_token_accuracy': '0.4732', 'epoch': '2.101'}
+{'eval_loss': '2.61', 'eval_runtime': '73.68', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.622', 'eval_entropy': '2.598', 'eval_num_tokens': '2.171e+08', 'eval_mean_token_accuracy': '0.4696', 'epoch': '2.101'}
+{'loss': '10.38', 'grad_norm': '0.7011', 'learning_rate': '0.0002', 'entropy': '2.595', 'num_tokens': '2.204e+08', 'mean_token_accuracy': '0.4718', 'epoch': '2.132'}
+{'eval_loss': '2.609', 'eval_runtime': '73.75', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.613', 'eval_entropy': '2.594', 'eval_num_tokens': '2.204e+08', 'eval_mean_token_accuracy': '0.4697', 'epoch': '2.132'}
+{'loss': '10.38', 'grad_norm': '0.7456', 'learning_rate': '0.0002', 'entropy': '2.597', 'num_tokens': '2.236e+08', 'mean_token_accuracy': '0.4715', 'epoch': '2.164'}
+{'eval_loss': '2.609', 'eval_runtime': '73.67', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.624', 'eval_entropy': '2.598', 'eval_num_tokens': '2.236e+08', 'eval_mean_token_accuracy': '0.4697', 'epoch': '2.164'}
+{'loss': '10.35', 'grad_norm': '0.7251', 'learning_rate': '0.0002', 'entropy': '2.589', 'num_tokens': '2.268e+08', 'mean_token_accuracy': '0.4724', 'epoch': '2.195'}
+{'eval_loss': '2.609', 'eval_runtime': '73.73', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.616', 'eval_entropy': '2.589', 'eval_num_tokens': '2.268e+08', 'eval_mean_token_accuracy': '0.4699', 'epoch': '2.195'}
+{'loss': '10.35', 'grad_norm': '0.6515', 'learning_rate': '0.0002', 'entropy': '2.588', 'num_tokens': '2.3e+08', 'mean_token_accuracy': '0.4731', 'epoch': '2.226'}
+{'eval_loss': '2.609', 'eval_runtime': '73.64', 'eval_samples_per_second': '153.9', 'eval_steps_per_second': '9.628', 'eval_entropy': '2.599', 'eval_num_tokens': '2.3e+08', 'eval_mean_token_accuracy': '0.4699', 'epoch': '2.226'}
+{'loss': '10.37', 'grad_norm': '0.7621', 'learning_rate': '0.0002', 'entropy': '2.593', 'num_tokens': '2.333e+08', 'mean_token_accuracy': '0.4726', 'epoch': '2.258'}
+{'eval_loss': '2.608', 'eval_runtime': '73.71', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.619', 'eval_entropy': '2.596', 'eval_num_tokens': '2.333e+08', 'eval_mean_token_accuracy': '0.4699', 'epoch': '2.258'}
+{'loss': '10.41', 'grad_norm': '0.7979', 'learning_rate': '0.0002', 'entropy': '2.604', 'num_tokens': '2.366e+08', 'mean_token_accuracy': '0.4704', 'epoch': '2.289'}
+{'eval_loss': '2.608', 'eval_runtime': '73.68', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.623', 'eval_entropy': '2.595', 'eval_num_tokens': '2.366e+08', 'eval_mean_token_accuracy': '0.4699', 'epoch': '2.289'}
+{'loss': '10.36', 'grad_norm': '0.7349', 'learning_rate': '0.0002', 'entropy': '2.592', 'num_tokens': '2.398e+08', 'mean_token_accuracy': '0.4722', 'epoch': '2.321'}
+{'eval_loss': '2.608', 'eval_runtime': '73.73', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.616', 'eval_entropy': '2.601', 'eval_num_tokens': '2.398e+08', 'eval_mean_token_accuracy': '0.4699', 'epoch': '2.321'}
+{'loss': '10.38', 'grad_norm': '0.8806', 'learning_rate': '0.0002', 'entropy': '2.595', 'num_tokens': '2.43e+08', 'mean_token_accuracy': '0.4724', 'epoch': '2.352'}
+{'eval_loss': '2.607', 'eval_runtime': '73.71', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.618', 'eval_entropy': '2.593', 'eval_num_tokens': '2.43e+08', 'eval_mean_token_accuracy': '0.47', 'epoch': '2.352'}
+{'loss': '10.36', 'grad_norm': '0.6855', 'learning_rate': '0.0002', 'entropy': '2.59', 'num_tokens': '2.463e+08', 'mean_token_accuracy': '0.4732', 'epoch': '2.383'}
+{'eval_loss': '2.607', 'eval_runtime': '73.67', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.624', 'eval_entropy': '2.601', 'eval_num_tokens': '2.463e+08', 'eval_mean_token_accuracy': '0.4701', 'epoch': '2.383'}
+{'loss': '10.34', 'grad_norm': '0.7181', 'learning_rate': '0.0002', 'entropy': '2.586', 'num_tokens': '2.495e+08', 'mean_token_accuracy': '0.4737', 'epoch': '2.415'}
+{'eval_loss': '2.606', 'eval_runtime': '73.72', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.618', 'eval_entropy': '2.59', 'eval_num_tokens': '2.495e+08', 'eval_mean_token_accuracy': '0.4702', 'epoch': '2.415'}
+{'loss': '10.36', 'grad_norm': '0.6886', 'learning_rate': '0.0002', 'entropy': '2.591', 'num_tokens': '2.527e+08', 'mean_token_accuracy': '0.4722', 'epoch': '2.446'}
+{'eval_loss': '2.606', 'eval_runtime': '73.71', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.618', 'eval_entropy': '2.596', 'eval_num_tokens': '2.527e+08', 'eval_mean_token_accuracy': '0.4702', 'epoch': '2.446'}
+{'loss': '10.39', 'grad_norm': '0.7712', 'learning_rate': '0.0002', 'entropy': '2.599', 'num_tokens': '2.56e+08', 'mean_token_accuracy': '0.4721', 'epoch': '2.477'}
+{'eval_loss': '2.606', 'eval_runtime': '73.74', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.615', 'eval_entropy': '2.595', 'eval_num_tokens': '2.56e+08', 'eval_mean_token_accuracy': '0.4702', 'epoch': '2.477'}
+{'loss': '10.41', 'grad_norm': '0.7573', 'learning_rate': '0.0002', 'entropy': '2.603', 'num_tokens': '2.592e+08', 'mean_token_accuracy': '0.4701', 'epoch': '2.509'}
+{'eval_loss': '2.605', 'eval_runtime': '73.73', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.616', 'eval_entropy': '2.602', 'eval_num_tokens': '2.592e+08', 'eval_mean_token_accuracy': '0.4704', 'epoch': '2.509'}
+{'loss': '10.35', 'grad_norm': '0.7268', 'learning_rate': '0.0002', 'entropy': '2.587', 'num_tokens': '2.625e+08', 'mean_token_accuracy': '0.473', 'epoch': '2.54'}
+{'eval_loss': '2.605', 'eval_runtime': '73.73', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.616', 'eval_entropy': '2.597', 'eval_num_tokens': '2.625e+08', 'eval_mean_token_accuracy': '0.4704', 'epoch': '2.54'}
+{'loss': '10.39', 'grad_norm': '0.7809', 'learning_rate': '0.0002', 'entropy': '2.6', 'num_tokens': '2.657e+08', 'mean_token_accuracy': '0.4714', 'epoch': '2.571'}
+{'eval_loss': '2.605', 'eval_runtime': '73.74', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.615', 'eval_entropy': '2.596', 'eval_num_tokens': '2.657e+08', 'eval_mean_token_accuracy': '0.4706', 'epoch': '2.571'}
+{'loss': '10.35', 'grad_norm': '0.7213', 'learning_rate': '0.0002', 'entropy': '2.588', 'num_tokens': '2.689e+08', 'mean_token_accuracy': '0.4738', 'epoch': '2.603'}
+{'eval_loss': '2.604', 'eval_runtime': '73.74', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.615', 'eval_entropy': '2.602', 'eval_num_tokens': '2.689e+08', 'eval_mean_token_accuracy': '0.4705', 'epoch': '2.603'}
+{'loss': '10.36', 'grad_norm': '0.7159', 'learning_rate': '0.0002', 'entropy': '2.591', 'num_tokens': '2.722e+08', 'mean_token_accuracy': '0.4725', 'epoch': '2.634'}
+{'eval_loss': '2.604', 'eval_runtime': '73.77', 'eval_samples_per_second': '153.6', 'eval_steps_per_second': '9.61', 'eval_entropy': '2.598', 'eval_num_tokens': '2.722e+08', 'eval_mean_token_accuracy': '0.4706', 'epoch': '2.634'}
+{'loss': '10.36', 'grad_norm': '0.6788', 'learning_rate': '0.0002', 'entropy': '2.592', 'num_tokens': '2.755e+08', 'mean_token_accuracy': '0.4725', 'epoch': '2.666'}
+{'eval_loss': '2.604', 'eval_runtime': '73.77', 'eval_samples_per_second': '153.6', 'eval_steps_per_second': '9.611', 'eval_entropy': '2.595', 'eval_num_tokens': '2.755e+08', 'eval_mean_token_accuracy': '0.4706', 'epoch': '2.666'}
+{'loss': '10.38', 'grad_norm': '0.75', 'learning_rate': '0.0002', 'entropy': '2.596', 'num_tokens': '2.787e+08', 'mean_token_accuracy': '0.4716', 'epoch': '2.697'}
+{'eval_loss': '2.603', 'eval_runtime': '73.77', 'eval_samples_per_second': '153.6', 'eval_steps_per_second': '9.611', 'eval_entropy': '2.589', 'eval_num_tokens': '2.787e+08', 'eval_mean_token_accuracy': '0.4706', 'epoch': '2.697'}
+{'loss': '10.37', 'grad_norm': '0.758', 'learning_rate': '0.0002', 'entropy': '2.595', 'num_tokens': '2.82e+08', 'mean_token_accuracy': '0.4723', 'epoch': '2.728'}
+{'eval_loss': '2.603', 'eval_runtime': '73.71', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.619', 'eval_entropy': '2.598', 'eval_num_tokens': '2.82e+08', 'eval_mean_token_accuracy': '0.4707', 'epoch': '2.728'}
+{'loss': '10.38', 'grad_norm': '0.7018', 'learning_rate': '0.0002', 'entropy': '2.596', 'num_tokens': '2.852e+08', 'mean_token_accuracy': '0.4718', 'epoch': '2.76'}
+{'eval_loss': '2.603', 'eval_runtime': '73.75', 'eval_samples_per_second': '153.6', 'eval_steps_per_second': '9.613', 'eval_entropy': '2.592', 'eval_num_tokens': '2.852e+08', 'eval_mean_token_accuracy': '0.4707', 'epoch': '2.76'}
+{'loss': '10.41', 'grad_norm': '0.7035', 'learning_rate': '0.0002', 'entropy': '2.605', 'num_tokens': '2.884e+08', 'mean_token_accuracy': '0.4702', 'epoch': '2.791'}
+{'eval_loss': '2.602', 'eval_runtime': '73.82', 'eval_samples_per_second': '153.5', 'eval_steps_per_second': '9.605', 'eval_entropy': '2.586', 'eval_num_tokens': '2.884e+08', 'eval_mean_token_accuracy': '0.4707', 'epoch': '2.791'}
+{'loss': '10.37', 'grad_norm': '0.7301', 'learning_rate': '0.0002', 'entropy': '2.594', 'num_tokens': '2.917e+08', 'mean_token_accuracy': '0.4723', 'epoch': '2.822'}
+{'eval_loss': '2.602', 'eval_runtime': '73.71', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.619', 'eval_entropy': '2.601', 'eval_num_tokens': '2.917e+08', 'eval_mean_token_accuracy': '0.4709', 'epoch': '2.822'}
+{'loss': '10.37', 'grad_norm': '0.7116', 'learning_rate': '0.0002', 'entropy': '2.594', 'num_tokens': '2.949e+08', 'mean_token_accuracy': '0.4724', 'epoch': '2.854'}
+{'eval_loss': '2.602', 'eval_runtime': '73.73', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.617', 'eval_entropy': '2.595', 'eval_num_tokens': '2.949e+08', 'eval_mean_token_accuracy': '0.4708', 'epoch': '2.854'}
+{'loss': '10.34', 'grad_norm': '0.7216', 'learning_rate': '0.0002', 'entropy': '2.587', 'num_tokens': '2.982e+08', 'mean_token_accuracy': '0.4733', 'epoch': '2.885'}
+{'eval_loss': '2.602', 'eval_runtime': '73.76', 'eval_samples_per_second': '153.6', 'eval_steps_per_second': '9.612', 'eval_entropy': '2.6', 'eval_num_tokens': '2.982e+08', 'eval_mean_token_accuracy': '0.4709', 'epoch': '2.885'}
+{'loss': '10.34', 'grad_norm': '0.7017', 'learning_rate': '0.0002', 'entropy': '2.587', 'num_tokens': '3.014e+08', 'mean_token_accuracy': '0.4732', 'epoch': '2.916'}
+{'eval_loss': '2.601', 'eval_runtime': '73.73', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.616', 'eval_entropy': '2.589', 'eval_num_tokens': '3.014e+08', 'eval_mean_token_accuracy': '0.4709', 'epoch': '2.916'}
+{'loss': '10.39', 'grad_norm': '0.7334', 'learning_rate': '0.0002', 'entropy': '2.599', 'num_tokens': '3.047e+08', 'mean_token_accuracy': '0.4711', 'epoch': '2.948'}
+{'eval_loss': '2.601', 'eval_runtime': '73.73', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.616', 'eval_entropy': '2.599', 'eval_num_tokens': '3.047e+08', 'eval_mean_token_accuracy': '0.471', 'epoch': '2.948'}
+{'loss': '10.37', 'grad_norm': '0.6997', 'learning_rate': '0.0002', 'entropy': '2.593', 'num_tokens': '3.079e+08', 'mean_token_accuracy': '0.4722', 'epoch': '2.979'}
+{'eval_loss': '2.6', 'eval_runtime': '73.69', 'eval_samples_per_second': '153.8', 'eval_steps_per_second': '9.621', 'eval_entropy': '2.605', 'eval_num_tokens': '3.079e+08', 'eval_mean_token_accuracy': '0.4711', 'epoch': '2.979'}
+{'eval_loss': '2.6', 'eval_runtime': '73.74', 'eval_samples_per_second': '153.7', 'eval_steps_per_second': '9.615', 'eval_entropy': '2.59', 'eval_num_tokens': '3.101e+08', 'eval_mean_token_accuracy': '0.471', 'epoch': '3'}
+
+Epoch 3 time: 6398.77 seconds
+
+Epoch 3.0
+{'rouge1': np.float64(0.29364493782984435), 'rouge2': np.float64(0.08732003420729004), 'rougeL': np.float64(0.22856869968888505), 'rougeLsum': np.float64(0.22854223802102372)}
+{'train_runtime': '1.977e+04', 'train_samples_per_second': '30.96', 'train_steps_per_second': '0.484', 'train_loss': '10.48', 'epoch': '3'}
+Best checkpoint path: state-spaces_mamba-130m-hf-r32-e3/checkpoint-9567
+ROUGE Score after fine-tuning: {'rouge1': np.float64(0.29364493782984435), 'rouge2': np.float64(0.08732003420729004), 'rougeL': np.float64(0.22856869968888505), 'rougeLsum': np.float64(0.22854223802102372)}
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mstate-spaces_mamba-130m-hf-r32-e3[0m at: [34mhttps://wandb.ai/llm_mamba/mamba-finetuning/runs/6vsd525n[0m
+[1;34mwandb[0m: Find logs at: [1;35m../../../net/obelix/homes/SCRATCH/zwaszczu/llm_mamba/wandb/run-20260607_021455-6vsd525n/logs[0m
+Elapsed: 05:35:58

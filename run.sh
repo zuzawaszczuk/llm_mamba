@@ -26,7 +26,7 @@ source .venv/bin/activate
 # OMP_NUM_THREADS=1 torchrun --nproc-per-node=6 main.py --model "state-spaces/mamba-130m-hf" --rank 16 --epoch 20 --ddp_setup True
 # python3 main.py --model "state-spaces/mamba-130m-hf" --rank 32 --epoch 10 
 
-python3 main.py --model "state-spaces/mamba-130m-hf" --rank 32 --epoch 3 
+python3 main.py --model "openai-community/gpt2" --rank 32 --epoch 3 --max_length 512
 
 END=$(date +%s)
 ELAPSED=$((END - START))

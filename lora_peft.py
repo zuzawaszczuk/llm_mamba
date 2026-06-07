@@ -55,7 +55,7 @@ def fine_tune_with_lora(model: AutoModelForCausalLM, dataset: Dataset, tokenizer
         lora_alpha=rank,           # LoRA scaling factor
         lora_dropout=0.05,      # Dropout probability for LoRA layers
         bias="none",
-        target_modules=["in_proj", "x_proj", "dt_proj", "embeddings"],
+        #target_modules=["in_proj", "x_proj", "dt_proj", "embeddings"],
         #target_modules=["q_a_proj", "q_b_proj", "kv_proj", "o_a_proj", "o_b_proj"],
         task_type="CAUSAL_LM",  # Task type for model architecture
         ensure_weight_tying=True,

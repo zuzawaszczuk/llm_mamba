@@ -36,7 +36,7 @@ def score_model(model: AutoModelForCausalLM, tokenizer: AutoTokenizer, dataset: 
 
 def generate_answers_batch(model: AutoModelForCausalLM, tokenizer: AutoTokenizer, prompts: List[str]) -> List[str]:
     tokenizer.pad_token = tokenizer.eos_token
-    inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=4096).to(model.device)
+    inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=512).to(model.device)
     
     with torch.inference_mode():
         outputs = model.generate(
